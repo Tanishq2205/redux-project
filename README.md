@@ -1,3 +1,6 @@
+# Error
+To see run code and see on the console.
+
 # React + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
