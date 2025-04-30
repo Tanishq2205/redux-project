@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { addTask } from "../features/todo/todoSlice";
+import { addTodo } from "../redux/todoSlice";
 
 export default function AddTask() {
     const [task, setTask] = useState("");
@@ -9,7 +9,7 @@ export default function AddTask() {
     const handleSubmit = (e) => {
         e.preventDefault();
         if (task.trim()) {
-            dispatch(addTask(task)); // Dispatch the `addTask` action
+            dispatch(addTodo(task)); // Dispatch the `addTask` action
             setTask(""); // Clear the input field
         }
     };

@@ -1,24 +1,28 @@
-import { useSelector } from "react-redux";
-import AddTask from "./AddTask";
-
+import { useSelector, useDispatch } from "react-redux";
+import { deleteTodo } from "../redux/todoSlice";
 export default function ToDo() {
-    const todos = useSelector((state) => {
-        return state.todos
-    })
+    const dispatch = useDispatch();
+    const todos = useSelector((state) => state.todos || []);
 
-    console.log(todos)
+    const handleDelete = (id) => {
+        dispatch(deleteTodo(id));
+    };
 
     return (
         <>
-            <AddTask></AddTask>
             <h2>ToDo List App</h2>
-            <ul>
-                {todos.map((todo) => (
-                    <li key={todo.id}>{todo.task}
-                        <button>Delete</button>
-                    </li>
+            {todos.length === 0 ? (
+                <p>No todos yet. Add a task!</p>
+            ) : (
+                <ul>
+                    {todos.map((todo) => (
+                        <li key={todo.id}>
+                            {todo.task}
+                            <button onClick={() => handleDelete(todo.id)}>Delete</button>
+                        </li>
                     ))}
-            </ul>
+                </ul>
+            )}
         </>
     );
 }

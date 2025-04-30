@@ -1,17 +1,15 @@
 import ToDo from './components/Todo'
+import AddTask from './components/AddTask'
 import './App.css'
-import { Provider } from 'react-redux'
-import { store }   from './app/store.js'
+
+
 function App() {
-
-
   return (
-    <>
-      <Provider store={store}>
-        <ToDo></ToDo>
-      </Provider>
-      
-    </>
+    <div className="app">
+      <h1>Todo List</h1>
+      <AddTask />
+      <ToDo />
+    </div>
   )
 }
 
